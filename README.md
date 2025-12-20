@@ -43,7 +43,7 @@ A production-grade Progressive Web App built with the MERN stack for managing ha
 
 1. **Clone the repository**
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Velstruck/Life-OS
 cd project
 ```
 
@@ -224,4 +224,4 @@ Contributions are welcome! Please open an issue or submit a pull request.
 
 ---
 
-Built with ❤️ using the MERN stack
+Built with ❤️ by Vasudev
