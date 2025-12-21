@@ -4,7 +4,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'sonner';
 import { useAuthStore } from './stores/authStore';
 import { authAPI } from './api/auth';
-import ProtectedRoute from './components/ProtectedRoute';
 import MobileLayout from './layouts/MobileLayout';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -33,11 +32,20 @@ function App() {
 
   useEffect(() => {
     const checkAuth = async () => {
+      // Only check auth if there's a token in localStorage
+      const token = localStorage.getItem('token');
+      if (!token) {
+        setIsLoading(false);
+        return;
+      }
+
       setIsLoading(true);
       try {
         const response = await authAPI.getMe();
         setUser(response.user);
       } catch (error) {
+        // If token is invalid, clear it
+        localStorage.removeItem('token');
         setUser(null);
       } finally {
         setIsLoading(false);

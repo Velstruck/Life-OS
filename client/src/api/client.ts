@@ -5,11 +5,15 @@ export const apiCall = async (
   endpoint: string,
   options: RequestInit = {}
 ): Promise<any> => {
+  // Get token from localStorage for iOS compatibility
+  const token = localStorage.getItem('token');
+  
   const url = `${API_BASE_URL}/api${endpoint}`;
   const response = await fetch(url, {
     ...options,
     headers: {
       'Content-Type': 'application/json',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...options.headers,
     },
     credentials: 'include',

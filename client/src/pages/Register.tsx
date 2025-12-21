@@ -18,6 +18,10 @@ export default function Register() {
     setLoading(true);
     try {
       const response = await authAPI.register(email, password, name);
+      // Store token in localStorage for iOS compatibility
+      if (response.token) {
+        localStorage.setItem('token', response.token);
+      }
       setUser(response.user);
       toast.success('Account created successfully!');
       navigate('/');

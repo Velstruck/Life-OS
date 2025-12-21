@@ -10,7 +10,11 @@ export const authenticateToken = (
   res: Response,
   next: NextFunction
 ): void => {
-  const token = req.cookies?.token;
+  // Try to get token from Authorization header first (for iOS/mobile), then fallback to cookie (for desktop browsers)
+  const authHeader = req.headers.authorization;
+  const token = authHeader?.startsWith('Bearer ') 
+    ? authHeader.substring(7) 
+    : req.cookies?.token;
 
   if (!token) {
     res.status(401).json({ error: 'No authentication token' });

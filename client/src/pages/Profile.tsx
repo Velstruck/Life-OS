@@ -11,6 +11,8 @@ export default function Profile() {
   const handleLogout = async () => {
     try {
       await authAPI.logout();
+      // Clear token from localStorage
+      localStorage.removeItem('token');
       logout();
       toast.success('Logged out successfully');
       navigate('/login');

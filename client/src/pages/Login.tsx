@@ -17,6 +17,10 @@ export default function Login() {
     setLoading(true);
     try {
       const response = await authAPI.login(email, password);
+      // Store token in localStorage for iOS compatibility
+      if (response.token) {
+        localStorage.setItem('token', response.token);
+      }
       setUser(response.user);
       toast.success('Welcome back!');
       navigate('/');
