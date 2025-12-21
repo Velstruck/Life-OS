@@ -16,9 +16,10 @@ connectDB();
 // CORS configuration for public access
 app.use(cors({
   origin: process.env.NODE_ENV === 'production'
-    ? process.env.CLIENT_URL || '*'
+    ? process.env.CLIENT_URL || 'https://life-os-henna-seven.vercel.app'
     : ['http://localhost:5173', 'http://localhost:3000'],
-  credentials: true,
+  credentials: true,methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 app.use(cookieParser());
