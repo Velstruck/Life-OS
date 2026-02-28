@@ -56,6 +56,24 @@ export interface Settlement {
   amount: number;
 }
 
+export interface Memory {
+  id: string;
+  userId: string;
+  title?: string;
+  content: string;
+  images: string[];
+  category: 'memory' | 'thought' | 'quote';
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface MemoryPagination {
+  page: number;
+  limit: number;
+  total: number;
+  pages: number;
+}
+
 export interface AuthResponse {
   user: User;
   token: string;

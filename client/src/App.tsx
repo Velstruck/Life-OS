@@ -14,6 +14,7 @@ import StreakDetail from './pages/StreakDetail';
 import KhataPage from './pages/KhataPage';
 import GroupDetail from './pages/GroupDetail';
 import Profile from './pages/Profile';
+import MemoryLanePage from './pages/MemoryLanePage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -94,6 +95,7 @@ function App() {
             <Route path="/streaks/:habitId" element={<StreakDetail />} />
             <Route path="/khata" element={<KhataPage />} />
             <Route path="/khata/:groupId" element={<GroupDetail />} />
+            <Route path="/memories" element={<MemoryLanePage />} />
             <Route path="/profile" element={<Profile />} />
           </Route>
 

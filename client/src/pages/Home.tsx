@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Zap, Wallet, TrendingUp, Users } from 'lucide-react';
+import { Zap, Wallet, TrendingUp, Users, Camera, Heart } from 'lucide-react';
 import { useAuthStore } from '../stores/authStore';
 import { Meteors } from '@/components/ui/meteors';
 import { NameFlip } from '@/components/ui/name-flip';
@@ -62,6 +62,30 @@ export default function Home() {
                 <div className="flex items-center justify-center gap-2 text-sm text-primary-600 dark:text-primary-400 font-medium">
                   <Users size={16} />
                   <span>Manage groups →</span>
+                </div>
+              </div>
+            </div>
+          </button>
+
+          <button
+            onClick={() => navigate('/memories')}
+            className="w-full card group hover:shadow-soft-lg active:scale-98 transition-all relative overflow-hidden"
+          >
+            <Meteors number={8} />
+            <div className="flex items-center gap-4 relative z-10">
+              <div className="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
+                <Camera size={28} className="text-white" />
+              </div>
+              <div className="flex-1 min-w-0 text-center">
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors mb-1">
+                  MemoryLane
+                </h2>
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">
+                  Capture memories, thoughts, and quotes on your personal timeline
+                </p>
+                <div className="flex items-center justify-center gap-2 text-sm text-primary-600 dark:text-primary-400 font-medium">
+                  <Heart size={16} />
+                  <span>Open timeline →</span>
                 </div>
               </div>
             </div>
