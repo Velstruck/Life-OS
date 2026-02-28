@@ -9,7 +9,7 @@ export default function MobileLayout() {
     { 
       title: 'Home', 
       icon: <Home size={20} strokeWidth={2} />,
-      href: '/'
+      href: '/home'
     },
     { 
       title: 'Streaks', 

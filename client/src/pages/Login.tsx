@@ -23,7 +23,7 @@ export default function Login() {
       }
       setUser(response.user);
       toast.success('Welcome back!');
-      navigate('/');
+      navigate('/home');
     } catch (error: any) {
       toast.error(error.message || 'Login failed');
     } finally {
@@ -32,7 +32,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="card shadow-soft-lg animate-scale-in">
           {/* Logo */}
@@ -44,14 +44,14 @@ export default function Login() {
 
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-slate-900 mb-2">Welcome Back</h1>
-            <p className="text-slate-600">Sign in to continue to Life OS</p>
+            <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-2">Welcome Back</h1>
+            <p className="text-slate-600 dark:text-slate-400">Sign in to continue to Life OS</p>
           </div>
 
           {/* Form */}
           <form onSubmit={handleLogin} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Email Address
               </label>
               <div className="relative">
@@ -70,7 +70,7 @@ export default function Login() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Password
               </label>
               <div className="relative">
@@ -99,7 +99,7 @@ export default function Login() {
 
           {/* Footer */}
           <div className="mt-6 text-center">
-            <p className="text-slate-600">
+            <p className="text-slate-600 dark:text-slate-400">
               Don't have an account?{' '}
               <Link 
                 to="/register" 
@@ -112,7 +112,7 @@ export default function Login() {
         </div>
 
         {/* Additional Info */}
-        <div className="text-center mt-6 text-sm text-slate-600">
+        <div className="text-center mt-6 text-sm text-slate-600 dark:text-slate-500">
           <p>Your personal management PWA</p>
         </div>
       </div>

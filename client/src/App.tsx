@@ -8,6 +8,7 @@ import MobileLayout from './layouts/MobileLayout';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
+import LandingPage from './pages/LandingPage';
 import StreaksPage from './pages/StreaksPage';
 import StreakDetail from './pages/StreakDetail';
 import KhataPage from './pages/KhataPage';
@@ -71,19 +72,24 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Router>
         <Routes>
+          {/* Landing page - show hero for unauthenticated, redirect to home for authenticated */}
+          <Route path="/" element={
+            isAuthenticated ? <Navigate to="/home" replace /> : <LandingPage />
+          } />
+
           {/* Public routes */}
           <Route path="/login" element={
-            isAuthenticated ? <Navigate to="/" replace /> : <Login />
+            isAuthenticated ? <Navigate to="/home" replace /> : <Login />
           } />
           <Route path="/register" element={
-            isAuthenticated ? <Navigate to="/" replace /> : <Register />
+            isAuthenticated ? <Navigate to="/home" replace /> : <Register />
           } />
 
           {/* Protected routes */}
           <Route element={
-            isAuthenticated ? <MobileLayout /> : <Navigate to="/login" replace />
+            isAuthenticated ? <MobileLayout /> : <Navigate to="/" replace />
           }>
-            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/streaks" element={<StreaksPage />} />
             <Route path="/streaks/:habitId" element={<StreakDetail />} />
             <Route path="/khata" element={<KhataPage />} />
@@ -92,7 +98,7 @@ function App() {
           </Route>
 
           {/* Catch-all redirect */}
-          <Route path="*" element={<Navigate to={isAuthenticated ? "/" : "/login"} replace />} />
+          <Route path="*" element={<Navigate to={isAuthenticated ? "/home" : "/"} replace />} />
         </Routes>
       </Router>
       <Toaster richColors position="bottom-center" />

@@ -24,7 +24,7 @@ export default function Register() {
       }
       setUser(response.user);
       toast.success('Account created successfully!');
-      navigate('/');
+      navigate('/home');
     } catch (error: any) {
       toast.error(error.message || 'Registration failed');
     } finally {
@@ -33,7 +33,7 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="card shadow-soft-lg animate-scale-in">
           {/* Logo */}
@@ -45,14 +45,14 @@ export default function Register() {
 
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-slate-900 mb-2">Create Account</h1>
-            <p className="text-slate-600">Join Life OS to get started</p>
+            <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-2">Create Account</h1>
+            <p className="text-slate-600 dark:text-slate-400">Join Life OS to get started</p>
           </div>
 
           {/* Form */}
           <form onSubmit={handleRegister} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Full Name
               </label>
               <div className="relative">
@@ -71,7 +71,7 @@ export default function Register() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Email Address
               </label>
               <div className="relative">
@@ -90,7 +90,7 @@ export default function Register() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Password
               </label>
               <div className="relative">
@@ -107,7 +107,7 @@ export default function Register() {
                   minLength={6}
                 />
               </div>
-              <p className="text-xs text-slate-500 mt-1">Minimum 6 characters</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Minimum 6 characters</p>
             </div>
 
             <button
@@ -121,7 +121,7 @@ export default function Register() {
 
           {/* Footer */}
           <div className="mt-6 text-center">
-            <p className="text-slate-600">
+            <p className="text-slate-600 dark:text-slate-400">
               Already have an account?{' '}
               <Link 
                 to="/login" 
@@ -134,7 +134,7 @@ export default function Register() {
         </div>
 
         {/* Additional Info */}
-        <div className="text-center mt-6 text-sm text-slate-600">
+        <div className="text-center mt-6 text-sm text-slate-600 dark:text-slate-500">
           <p>Your personal management PWA</p>
         </div>
       </div>
