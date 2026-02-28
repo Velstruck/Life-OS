@@ -6,6 +6,7 @@ import connectDB from './db.js';
 import authRoutes from './routes/auth.js';
 import habitRoutes from './routes/habits.js';
 import groupRoutes from './routes/groups.js';
+import memoryRoutes from './routes/memories.js';
 import { errorHandler } from './middleware/errorHandler.js';
 
 const app = express();
@@ -27,6 +28,7 @@ app.use(cookieParser());
 app.use('/api/auth', authRoutes);
 app.use('/api/habits', habitRoutes);
 app.use('/api/groups', groupRoutes);
+app.use('/api/memories', memoryRoutes);
 
 app.use(errorHandler);
 

@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { Home, Zap, Wallet, User } from 'lucide-react';
+import { Home, Zap, Wallet, User, Camera } from 'lucide-react';
 import { FloatingDock } from '@/components/ui/floating-dock';
 import { BackgroundBeams } from '@/components/ui/background-beams';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
@@ -20,6 +20,11 @@ export default function MobileLayout() {
       title: 'Khata', 
       icon: <Wallet size={20} strokeWidth={2} />,
       href: '/khata'
+    },
+    { 
+      title: 'Memories', 
+      icon: <Camera size={20} strokeWidth={2} />,
+      href: '/memories'
     },
     { 
       title: 'Profile', 
